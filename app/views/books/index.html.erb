@@ -1,12 +1,10 @@
 <% @books.each do |book| %>
  <div>
-   <p>Title：<%= book.title %></p>
-   <p>Opinion：<%= book.body %></p>
+  <%= link_to book.title, book_path(book.id) %>
+
+   <p><%= book.body %></p>
  </div>
 <% end %>
-
-
-
 
 <h2>New book</h2>
  <%= form_with model: @book do |f| %>
