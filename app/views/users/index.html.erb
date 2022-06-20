@@ -1,10 +1,12 @@
-<%= render 'list/lists', book: @book, user: @user %>
-
-<h1>Books</h1>
+<h2>Books</h2>
 <% @books.each do |book| %>
  <div>
+  <h3>Title</h3>
   <%= link_to book.title, book_path(book.id) %>
 
+   <h3>Opinion</h3>
    <p><%= book.body %></p>
  </div>
 <% end %>
+
+<%= render 'list/lists' %>
