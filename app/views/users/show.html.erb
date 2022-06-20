@@ -1,1 +1,12 @@
+<% @books.each do |book| %>
+<div>
+  <p>Title</p>
+  <%= book.title %>
+
+  <p>Opinion</p>
+  <%= book.body %>
+
+</div>
+<% end %>
+
 <%= render 'list/lists', book: @book, user: @user %>
