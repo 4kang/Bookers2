@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bookers2Ver2</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -12,6 +12,8 @@
 
   <body>
     <header>
+      <nav>
+        <div>
       <% if user_signed_in? %>
       <li>
         <%= link_to "Home", user_path(current_user.id) %>
@@ -27,7 +29,8 @@
         <%= link_to "Log in", new_user_session_path %>
       </li>
       <% end %>
-
+        </div>
+      </nav>
     </header>
     <%= yield %>
   </body>
