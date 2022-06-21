@@ -1,16 +1,45 @@
 <p id="notice"><%= notice %></p>
-<h2>Book detail</h2>
+<div class="container">
+ <div class="row">
+  <%= render 'list/myself', book: @new_book, user: @user %>
+  <div class="col-md-8 offset-md-1">
+   <h2>Book detail</h2>
+   <table class="table">
+    <tbody>
+      <tr>
+       <td>
+        <%= link_to user_path(@user) do %>
+        <%= image_tag @user.get_profile_image(100,100) %><br>
+        <%= @user.name %>
+        <% end %>
+       </td>
+       <td>
+        <%= link_to @book.title, book_path(@book.id) %>
+        </td>
+        <td>
+         <%= @book.body %>
+        </td>
+        <% if @book.user == current_user %>
+        <td>
+         <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
+        </td>
+        <td>
+         <%= link_to "Destroy", books_path(@book), method: :delete, class: "btn btn-sm btn-danger" %>
+        </td>
+         <% end %>
+       </tr>
+      </tbody>
+     </table>
+   </div>
+ </div>
+</div>
 
-<%= image_tag @user.get_profile_image(100,100) %>
-<%= @book.title %>
-<%= @book.body %>
-<%= @book.user.name %>
-
-<% if @book.user == current_user %>
- <%= link_to "Edit", edit_book_path(@book.id) %>
- <%= link_to "Destroy", books_path(@book), method: :delete %>
-<% end %>
 
 
 
-<%= render 'list/lists', book: @new_book, user: @user %>
+
+
+
+
+
+
