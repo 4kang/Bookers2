@@ -1,16 +1,16 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
  <div class="row">
-  <%= render 'list/myself', book: @new_book, user: @user %>
+  <%= render 'list/myself', book: @new_book, user: @book.user %>
   <div class="col-md-8 offset-md-1">
    <h2>Book detail</h2>
    <table class="table">
     <tbody>
       <tr>
        <td>
-        <%= link_to user_path(@user.id) do %>
-        <%= image_tag @user.get_profile_image(100,100) %><br>
-        <%= @user.name %>
+        <%= link_to user_path(@book.user.id) do %>
+        <%= image_tag @book.user.get_profile_image(100,100) %><br>
+        <%= @book.user.name %>
         <% end %>
        </td>
        <td>
@@ -24,7 +24,7 @@
          <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
         </td>
         <td>
-         <%= link_to "Destroy", books_path(@book), method: :delete, class: "btn btn-sm btn-danger" %>
+         <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger" %>
         </td>
          <% end %>
        </tr>
